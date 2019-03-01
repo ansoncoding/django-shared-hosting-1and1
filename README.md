@@ -68,7 +68,7 @@ This will download and compile the sources of Python 3.6.3, SQLite3 (3240000), a
 After this is finished, create a virtual environment in the python_files directory.
 
 ```
-install/python3.6/bin/python3 -m venv venv
+install/python3.6.3/bin/python3 -m venv venv
 
 source venv/bin/activate
 ```
@@ -369,7 +369,7 @@ tar -zxvf sqlite-autoconf-3240000.tar.gz
 
 cd sqlite-autoconf-3240000
 
-./configure --prefix=$installpath/python3.6
+./configure --prefix=$installpath/python3.6.3
 
 make
 
@@ -452,13 +452,13 @@ tar -zxf Python-3.6.3.tgz
 
 cd Python-3.6.3
 
-LD_RUN_PATH=$installpath/python3.6/lib configure
+LD_RUN_PATH=$installpath/python3.6.3/lib configure
 
-LDFLAGS="-L $$installpath/python3.6/lib"
+LDFLAGS="-L $$installpath/python3.6.3/lib"
 
-CPPFLAGS="-I $$installpath/python3.6/include"
+CPPFLAGS="-I $$installpath/python3.6.3/include"
 
-LD_RUN_PATH=$$installpath/python3.6/lib make
+LD_RUN_PATH=$$installpath/python3.6.3/lib make
 
 export SSL_DIR=$installpath/openssl-1.1.0e
 
@@ -466,7 +466,7 @@ patch setup.py ../setup.py.patch
 
 ln -s $installpath/openssl-1.1.0e/include/openssl
 
-./configure --prefix=$installpath/python3.6
+./configure --prefix=$installpath/python3.6.3
 
 make
 
