@@ -21,12 +21,14 @@ This Git and these instructions have been made using 1&1 as a shared hosting ser
 
 ## build-python.sh usage
 
+```
 Usage: build-python.sh [-b <build_dir>] [-i <install_dir>] [-S] [-Q] [-h]
 	-h 					: print out usage help
     -i <install_dir>    : installation directory, default ./install
     -b <build_dir>      : build directory, default ./build
     -S                  : skip building SSL (if already done)
     -Q                  : skip building SQLITE3 (if already done)
+```
 
 ## Installation
 This git provides tools to help simplify the installation process. If it doesn't work for you (for example you don't have access to wget), you can try the manual installation at the bottom of this page.
