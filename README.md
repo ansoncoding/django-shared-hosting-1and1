@@ -23,7 +23,7 @@ This Git and these instructions have been made using 1&1 as a shared hosting ser
 
 ```
 Usage: build-python.sh [-b <build_dir>] [-i <install_dir>] [-S] [-Q] [-h]
-	-h 					: print out usage help
+    -h                  : print out usage help
     -i <install_dir>    : installation directory, default ./install
     -b <build_dir>      : build directory, default ./build
     -S                  : skip building SSL (if already done)
