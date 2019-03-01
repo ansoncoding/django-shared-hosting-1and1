@@ -1,15 +1,15 @@
-#!/kunden/homepages/32/d377917679/htdocs/.virtualenv/django/bin/python
+#!/path/to/your/htdocs/python_files/venv/bin/python
 
 import os
 import sys
 import traceback
 
-home = '/kunden/homepages/32/d377917679/htdocs'
+home = '/path/to/your/htdocs'
 try:
-    os.environ['VIRTUAL_ENV'] = os.path.join(home, '.virtualenv/django/bin')
+    os.environ['VIRTUAL_ENV'] = os.path.join(home, 'python_files/venv/bin')
     os.environ['PATH'] = os.environ['VIRTUAL_ENV'] + ':' + os.environ['PATH']
 
-    project = os.path.join(home, 'site/test')
+    project = os.path.join(home, 'your_site')
     # Add a custom Python path.
     sys.path.insert(0, project)
 
@@ -17,7 +17,7 @@ try:
     os.chdir(project)
 
     # Set the DJANGO_SETTINGS_MODULE environment variable.
-    os.environ['DJANGO_SETTINGS_MODULE'] = "polls.settings"
+    os.environ['DJANGO_SETTINGS_MODULE'] = "your_site.settings"
 
     from django_fastcgi.servers.fastcgi import runfastcgi
     from django.core.servers.basehttp import get_internal_wsgi_application

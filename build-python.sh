@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# This script build python 3.6.3 with openssl and sqlite3
+# This script builds Python 3.6.3 with OpenSSL and SQLite3
 
 function print_usage {
     echo 'Usage: build-python.sh [-b <build_dir>] [-i <install_dir>] [-S] [-Q] [-h]
     -i <install_dir>    : installation directory, default ./install
     -b <build_dir>      : build directory, default ./build
-    -S                  : skip building SSL (already done)
-    -Q                  : skip building SQLITE3 (already done)
+    -S                  : skip building SSL (if already done)
+    -Q                  : skip building SQLITE3 (if already done)
 '
     exit
 }
@@ -34,7 +34,7 @@ mkdir -p $build
 cd $build
 
 openssl=openssl-1.1.0e
-sqlite=sqlite-autoconf-3220000
+sqlite=sqlite-autoconf-3240000
 python=Python-3.6.3
 
 # openssl
@@ -43,7 +43,7 @@ python=Python-3.6.3
     rm -rf $openssl
     tar -zxf $openssl.tar.gz
     cd openssl-1.1.0e
-    config --prefix=$install/$openssl
+    ./config --prefix=$install/$openssl
     make
     make install
 ) |& tee openssl.log
@@ -52,9 +52,9 @@ python=Python-3.6.3
 [ $skip_sqlite = 1 ] || (
     wget https://sqlite.org/2018/$sqlite.tar.gz
     rm -rf $sqlite
-    tar -zxf $sqlite.tar.gz
+    tar -zxvf  $sqlite.tar.gz
     cd $sqlite
-    configure --prefix=$install/$sqlite
+    ./configure --prefix=$install/python3.6.3
     make
     make install
 ) |& tee sqlite3.log
@@ -65,11 +65,12 @@ python=Python-3.6.3
     rm -rf $python
     tar -zxf $python.tgz
     cd $python
+	LDFLAGS="-L $$install/python3.6/lib"
+	CPPFLAGS="-I $$install/python3.6/include"
     export SSL_DIR=$install/$openssl
-    export SQLITE_DIR=$install/$sqlite
     patch setup.py $here/setup.py.patch
     ln -s $install/$openssl/include/openssl
-    configure --prefix=$install/python3.6.3
+    ./configure --prefix=$install/python3.6.3
     make
     make install
 ) |& tee python.log
