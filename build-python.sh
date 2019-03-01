@@ -65,8 +65,8 @@ python=Python-3.6.3
     rm -rf $python
     tar -zxf $python.tgz
     cd $python
-	LDFLAGS="-L $$install/python3.6/lib"
-	CPPFLAGS="-I $$install/python3.6/include"
+    LDFLAGS="-L $$install/python3.6.3/lib"
+    CPPFLAGS="-I $$install/python3.6.3/include"
     export SSL_DIR=$install/$openssl
     patch setup.py $here/setup.py.patch
     ln -s $install/$openssl/include/openssl
