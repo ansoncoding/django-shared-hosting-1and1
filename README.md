@@ -99,7 +99,7 @@ If no error is thrown, Python can access SQLite3. Exit the Python interpreter.
 exit()
 ```
 
-### 3. Install Django
+### 4. Install Django
 
 Now  upgrade pip and install the modules in requirements.txt. Newer versions of these modules might work, but these are the newest versions currently available and they work. Future versions might not work with this method, hence I put the specific versions that currently work into the requirements.txt file.
 
@@ -117,7 +117,7 @@ Check if Django is installed correctly.
 python -m django --version
 ```
 
-### 4. Make a project for testing the installation
+### 5. Make a project for testing the installation
 
 Go back to your base directory and start a Django project.
 
@@ -222,7 +222,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = basepath + '/your_site/static'
 ```
 
-### 5. Add .htaccess and FastCGI files
+### 6. Add .htaccess and FastCGI files
 
 Save and close. Create cgi-bin directory and either copy the application.fcgi from the cloned git to /path/to/your/htdocs/your_site or create application.fcgi.
 
@@ -303,7 +303,7 @@ RewriteRule ^(.*)$ cgi-bin/application.fcgi/$1 [QSA,L]
 
 Save and close. 
 
-### 6. Prepare Django and check if it works
+### 7. Prepare Django and check if it works
 
 Collect the static files.
 
