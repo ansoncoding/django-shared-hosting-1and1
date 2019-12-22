@@ -311,7 +311,7 @@ Collect the static files.
 python manage.py collectstatic
 ```
 
-Connect your domain to the folder and you should get Django's debug 404 error. Navigate to your_domain.com/apache-test and you should see the message we wrote earlier (Congratulations, Django works.).
+Connect your domain to the outer project folder (your_site) and you should get Django's debug 404 error. Navigate to your_domain.com/apache-test (note this is apache dash test not underscore) and you should see the message we wrote earlier (Congratulations, Django works.).
 
 If the fcgi is working but there's another problem, python's traceback will be written to /path/to/your/htdocs/tmp/error.log. If there's a problem but no tmp/error.log, your fcgi most likely isn't being executed. Make sure the applications.fcgi has propper permissions (also the cgi-bin folder has propper permissions) and the .htaccess file is working.
 
